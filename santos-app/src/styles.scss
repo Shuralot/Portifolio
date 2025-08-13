@@ -10,9 +10,10 @@ html, body {
 body, app-root {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; 
 }
 
 main {
-  flex: 1; /* Faz o main crescer para empurrar o footer pra baixo */
+  flex: 1;
 }
+
