@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Sharevice } from '../sharevice';
 import { Shares } from '../shares';
-import { Observable } from 'rxjs';
-import { CommonModule } from '@angular/common';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-intro-main',
-  imports: [ CommonModule],
+  imports: [CommonModule],
   standalone: true,
   templateUrl: './intro-main.html',
   styleUrl: './intro-main.scss'
@@ -14,9 +14,15 @@ import { CommonModule } from '@angular/common';
 export class IntroMain implements OnInit {
   public shares$!: Observable<Shares[]>;
 
-  constructor(private sharevice: Sharevice) {}
-  ngOnInit(): void {
-    this.shares$ = this.sharevice.getShares();
-  }
+  private sharevice = inject(Sharevice);
+  private platformId = inject(PLATFORM_ID);
 
+  ngOnInit(): void {
+    // só chama Firestore no client
+    if (isPlatformBrowser(this.platformId)) {
+      this.shares$ = this.sharevice.getShares();
+    } else {
+      this.shares$ = of([]); // server-side não busca dados
+    }
+  }
 }
