@@ -1,20 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { Shares } from './shares'; 
+import { Shares } from './shares';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Sharevice {
 
-
-  constructor(private firestore: Firestore) {}
+  // Use inject() aqui, não no construtor
+  private firestore = inject(Firestore);
 
   getShares(): Observable<Shares[]> {
-
+    // collectionData deve ser chamado usando a instância injetada dentro de um método
     const sharesCollection = collection(this.firestore, 'projetos');
-
     return collectionData(sharesCollection, { idField: 'id' }) as Observable<Shares[]>;
   }
 }
