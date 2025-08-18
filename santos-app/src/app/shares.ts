@@ -7,6 +7,6 @@ export interface Shares {
     img: string;
     learned: string
     linkgit: string;
-    tag: Array<string>;
+    tags: Array<string>;
 
 }

@@ -11,29 +11,24 @@
 
 
     <div id="projects-content" class="space-y-6">
-        <h1 class="text-3xl font-bold">Metagi</h1>
-        <p class="text-gray-600">Uma descrição vai aqui</p>
+        <h1 class="text-3xl font-bold">{{ project.name }}</h1>
+        <p class="text-gray-600">{{ project.desc }}</p>
 
         <h2 class="text-2xl font-semibold">Tecnologias</h2>
         <ul id="technologies-list" class="flex gap-1 list-none justify-start">
-            <li class="rounded-md bg-slate-800 w-28 h-10 flex items-center justify-center text-white shadow-md">
-                Read more
+            <li *ngFor="let tech of project.tags" class="rounded-md bg-slate-800 w-28 h-10 flex items-center justify-center text-white shadow-md">
+                {{ tech }}
             </li>
-            <li class="rounded-md bg-slate-800 w-28 h-10 flex items-center justify-center text-white shadow-md">
-                Read more
-            </li>
-            <li class="rounded-md bg-slate-800 w-28 h-10 flex items-center justify-center text-white shadow-md">
-                Read more
-            </li>
+            
         </ul>
 
 
         <h2 class="text-2xl font-semibold">O que aprendi</h2>
-        <p class="text-gray-600">Um resumo vai aqui.</p>
+        <p class="text-gray-600">{{ project.learned }}</p>
 
         <h2 class="text-2xl font-semibold">Links</h2>
         <div id="projects-links" class="flex gap-4">
-            <a href="https://github.com/Shuralot" target="_blank" class="text-2xl hover:text-gray-400">
+            <a href="{{ project.linkgit}}" target="_blank" class="text-2xl hover:text-gray-400">
                 <i class="fa-brands fa-square-github"></i>
             </a>
         </div>

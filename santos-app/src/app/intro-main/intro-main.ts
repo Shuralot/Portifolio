@@ -3,10 +3,11 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Sharevice } from '../sharevice';
 import { Shares } from '../shares';
 import { Observable, of } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-intro-main',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   standalone: true,
   templateUrl: './intro-main.html',
   styleUrl: './intro-main.scss'
