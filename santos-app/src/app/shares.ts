@@ -8,5 +8,6 @@ export interface Shares {
     learned: string
     linkgit: string;
     tags: Array<string>;
+    featured: boolean;
 
 }

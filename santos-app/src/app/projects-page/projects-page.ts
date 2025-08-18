@@ -29,7 +29,8 @@ export class ProjectsPage {
         img: '',
         learned: '',
         linkgit: '',
-        tags: []
+        tags: [],
+        featured: false
       };
     }
   }

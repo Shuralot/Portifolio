@@ -14,16 +14,23 @@ import { RouterLink } from '@angular/router';
 })
 export class IntroMain implements OnInit {
   public shares$!: Observable<Shares[]>;
+  public featuredProject!: Shares;
 
   private sharevice = inject(Sharevice);
   private platformId = inject(PLATFORM_ID);
 
-  ngOnInit(): void {
-    // só chama Firestore no client
-    if (isPlatformBrowser(this.platformId)) {
-      this.shares$ = this.sharevice.getShares();
-    } else {
-      this.shares$ = of([]); // server-side não busca dados
-    }
+ngOnInit(): void {
+  if (isPlatformBrowser(this.platformId)) {
+    this.shares$ = this.sharevice.getShares();
+
+    this.shares$.subscribe(shares => {
+      this.featuredProject = shares.find(share => share.featured === true) as Shares;
+    });
+
+  } else {
+    this.shares$ = of([]);
+    this.featuredProject = undefined as any;
   }
+}
+
 }
