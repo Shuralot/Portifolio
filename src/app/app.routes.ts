@@ -10,6 +10,5 @@ export const routes: Routes = [
     {path: 'projects', component: ProjectsPage},
     {path: 'aboutme', component: AboutMe},
     {path: 'contact', component: Contact},
-    {path: '**', redirectTo: ''}
 
 ];
