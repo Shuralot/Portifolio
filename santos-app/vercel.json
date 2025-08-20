@@ -3,7 +3,7 @@
     {
       "src": "package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "dist/santos-app" }
+      "config": { "distDir": "npx ng build --configuration productio" }
     }
   ],
   "routes": [
