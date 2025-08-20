@@ -3,10 +3,12 @@
     {
       "src": "package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "dist/santos-app" }
+      "config": { "distDir": "dist/santos-app/browser" }
     }
   ],
   "routes": [
     { "src": "/(.*)", "dest": "/index.html" }
-  ]
+  ],
+
+   "rewrites": [{ "source": "/(.*)", "destination": "/" }] 
 }
