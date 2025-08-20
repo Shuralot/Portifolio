@@ -13,22 +13,11 @@
   </div>
 
   <div class="intro-projects">
-    <div *ngIf="featuredProject as banner"
-        id="intro-banner"
-        [ngStyle]="{'background-image': 'url(' + banner.img + ')'}">
-
-      <div class="overlay"></div> <!-- camada escura por cima da imagem -->
-
-      <div class="banner-content">
-        <h1>Projeto em destaque</h1>
-        <p>{{ banner.name }}</p>
-        <p>{{ banner.descur }}</p>
-        <button [routerLink]="['/projects']" [state]="{ project: banner }">Ver Projeto</button>
-      </div>
+    <div *ngIf="featuredProject as banner" id="intro-banner">
+      <h1>{{ banner.name }}</h1>
+      <p> {{ banner.descur }}</p>
+      <button [routerLink]="['/projects']" [state]="{ project: banner }" >Ver Projeto</button>
     </div>
-
-
-
 
     <h1>Meus Projetos</h1>
 
@@ -38,8 +27,8 @@
           <img [src]="share.img" alt="{{ share.name }}">
           <div class="p-4">
             <h6>{{ share.name }}</h6>
-            <p>{{ share.descur }}</p>
-            <button type="button" [routerLink]="['/projects']" [state]="{ project: share }">Ver Projeto</button>
+            <p>{{ share.desc }}</p>
+            <button type="button" [routerLink]="['/projects']" [state]="{ project: share }" >Ver Projeto</button>
           </div>
         </li>
       </ul>
