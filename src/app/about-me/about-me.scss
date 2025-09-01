@@ -16,11 +16,18 @@
   }
 
   .about-me-content {
+    padding-bottom: 10dvh;
     display: flex;
     flex-direction: column;
     gap: 1.5rem; 
     align-items: center;
 
+    #line{
+      width: 55%;
+      height: 1px;
+      background-color: #0000008c; 
+      margin: 1rem 0;
+    }
     #about-me-head {
       h2 {
         font-size: 1.875rem;
