@@ -4,6 +4,7 @@ import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app/app.routes';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC3x4OGYkBZBl42YGKssfzaPwcMlUck_NU",

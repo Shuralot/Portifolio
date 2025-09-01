@@ -1,10 +1,15 @@
 <div class="projects-page-container flex flex-col gap-10 p-5 max-w-[100vh] mx-auto">
 
-    <div id="projects-banner" class="w-full h-64 md:h-96 bg-gray-200 overflow-hidden relative">
-    <img 
-        src="{{ project.img }}" 
-        alt="Projects Banner" 
-        class="w-full h-full object-cover object-top">
+    <div id="projects-banner" class="w-full h-64 md:h-96 bg-transparent overflow-hidden justify-center">
+ 
+        <img 
+            src="{{ project.img }}" 
+            alt="Projects Banner" 
+            class="w-full "
+            data-bs-toggle="modal" data-bs-target="#bannerImage" 
+        >
+ 
+
     </div>
 
     <div id="projects-content" class="space-y-6">
@@ -25,10 +30,25 @@
 
         <h2 class="text-2xl font-semibold">Links</h2>
         <div id="projects-links" class="flex gap-4">
-            <a href="{{ project.linkgit}}" target="_blank" class="text-2xl hover:text-gray-400">
+            <a href="{{ project.linkgit }}" target="_blank" class="text-2xl hover:text-gray-400">
                 <i class="fa-brands fa-square-github"></i>
             </a>
         </div>
+    </div>
+
+</div>
+
+
+<!-- Modal -->
+<div class='modal fade' id="bannerImage"  tabindex="-1" aria-labelledby="projectBannerImage" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content w-auto h-auto object-cover">    
+            <img 
+                    src="{{ project.img }}" 
+                    alt="Projects Banner" 
+                    class="object-fill"
+            >
+            </div>
     </div>
 
 </div>
