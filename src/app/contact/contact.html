@@ -1,22 +1,41 @@
-<div class="contact-container">
+<div class="flex flex-col min-h-screen"> <!-- ocupa toda a altura da tela -->
 
-    <div id="contact-content">
-        <img src="https://pqtntsrfcboqeumitpoe.supabase.co/storage/v1/object/public/portimg/perfimg.png" alt="JS">
-        <h1>Contatos</h1>
+  <!-- Conteúdo principal -->
+  <div class="flex-grow">
+    <div class="contact-container flex flex-col items-center gap-10 py-16 px-5 max-w-4xl mx-auto">
 
-        <div class="social-icons">
-            <a href="https://github.com/Shuralot" target="_blank">
-                <i class="fa-brands fa-square-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/juliorasantos/" target="_blank">
-                <i class="fa-brands fa-square-linkedin"></i>
-            </a>
+      <div id="contact-content" class="flex flex-col items-center text-center gap-6">
+
+        <!-- Imagem -->
+        <img 
+          src="https://pqtntsrfcboqeumitpoe.supabase.co/storage/v1/object/public/portimg/perfimg.png" 
+          alt="JS"
+          class="w-64 h-64 object-cover rounded-full border-4 border-blue-500 shadow-lg"
+        >
+
+        <!-- Título -->
+        <h1 class="text-3xl md:text-4xl font-bold">Contatos</h1>
+
+        <!-- Redes sociais -->
+        <div class="social-icons flex gap-6 text-3xl">
+          <a href="https://github.com/Shuralot" target="_blank" class="text-gray-800 hover:text-blue-400 transition-colors duration-200">
+            <i class="fa-brands fa-square-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/juliorasantos/" target="_blank" class="text-gray-800 hover:text-blue-400 transition-colors duration-200">
+            <i class="fa-brands fa-square-linkedin"></i>
+          </a>
         </div>
 
-        <div class="contact-info">
-            <span><i class="fa-solid fa-envelope"></i> juliosantos@gmail.com</span>
-            <span><i class="fa-solid fa-phone"></i> (81)986601822</span>
+        <!-- Informações de contato -->
+        <div class="contact-info flex flex-col md:flex-row gap-4 text-lg text-gray-800">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-envelope"></i> juliosantos@gmail.com
+          </span>
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-phone"></i> (81) 98660-1822
+          </span>
         </div>
+
+      </div>
     </div>
-
-</div>
+  </div>
