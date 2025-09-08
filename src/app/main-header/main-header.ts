@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class MainHeader {
 
-  isMobile=false;
+  isMobile:boolean | null = null;
   
    constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver
