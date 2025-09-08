@@ -19,34 +19,23 @@
         width: 180px;
         height: 180px;
         object-fit: cover;
+        object-position: center; // centraliza o corte da imagem
         border-radius: 50%;
         border: 4px solid #007bff;
       }
     }
 
     #intro-nome-texto {
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 5px;
-      }
-      h2 {
-        font-size: 1.5rem;
-        color: #555;
-        margin-bottom: 15px;
-      }
-      p {
-        text-align: justify;
-        font-size: 1.1rem;
-        color: #333;
-        line-height: 1.6;
-      }
+      h1 { font-size: 2.5rem; margin-bottom: 5px; }
+      h2 { font-size: 1.5rem; color: #555; margin-bottom: 15px; }
+      p { text-align: justify; font-size: 1.1rem; color: #333; line-height: 1.6; }
+      strong { font-size: 1.2rem;}
     }
 
     @media (max-width: 768px) {
       flex-direction: column;
       align-items: center;
       text-align: center;
-
       #intro-nome-texto {
         h1 { font-size: 2rem; }
         h2 { font-size: 1.2rem; }
@@ -67,56 +56,56 @@
       padding: 5vh 0;
     }
 
-    #intro-banner {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      min-height: 250px;
-      padding: 20px;
-      border-radius: 8px;
-      overflow: hidden;
+   #intro-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-size: cover;
+  background-position: center;
+  min-height: 250px;
+  padding: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.45);
+    z-index: 1;
+    transition: background-color 0.3s ease;
+  }
+
+  .banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+
+    h1 { font-size: 2rem; margin-bottom: 10px; }
+    p { margin-bottom: 15px; font-size: 1.1rem; }
+
+    button {
+      background-color: rgba(0,123,255,0.9);
       color: white;
-
-      .overlay {
-        position: absolute;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.45);
-        z-index: 1;
-      }
-
-      .banner-content {
-        position: relative;
-        z-index: 2;
-        max-width: 600px;
-
-        h1 {
-          font-size: 2rem;
-          margin-bottom: 10px;
-        }
-        p {
-          margin-bottom: 15px;
-          font-size: 1.1rem;
-        }
-        button {
-          background-color: rgba(0, 123, 255, 0.9);
-          color: white;
-          border: none;
-          padding: 12px 25px;
-          border-radius: 5px;
-          cursor: pointer;
-          font-weight: bold;
-          font-size: 1rem;
-
-          &:hover {
-            background-color: rgba(0, 86, 179, 0.9);
-          }
-        }
-      }
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      &:hover { background-color: rgba(0,86,179,0.9); }
     }
+  }
+
+  &:hover {
+    transform: translateY(-5px);                   // levanta levemente
+    .overlay { background-color: rgba(0,0,0,0.55); } // escurece a overlay
+  }
+}
+
+
 
     #intro-projects-list-grid {
       display: grid;
@@ -124,7 +113,7 @@
       gap: 20px;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 0 0 10vh 0;
 
       li {
         display: flex;
@@ -134,31 +123,32 @@
         border-radius: 8px;
         overflow: hidden;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
 
         img {
           width: 100%;
-          height: 200px;
-          object-fit: cover;
+          height: 180px;       // altura padronizada
+          object-fit: cover;   // corta a imagem se necessário
+          object-position: center; // centraliza o corte
+          flex-shrink: 0;
         }
 
         .p-4 {
           display: flex;
           flex-direction: column;
+          flex: 1 1 auto;
           padding: 15px;
-          flex: 1;
 
-          h6 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-          }
-          p {
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.5;
-          }
+          h6 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; }
+          p { font-size: 1rem; color: #555; line-height: 1.5; word-break: break-word; }
+
           button {
-            margin-top: auto;
+            margin-top: auto; // garante que todos os botões fiquem alinhados
             background-color: #007bff;
             color: white;
             border: none;
@@ -167,10 +157,7 @@
             cursor: pointer;
             font-size: 1rem;
             font-weight: bold;
-
-            &:hover {
-              background-color: #0056b3;
-            }
+            &:hover { background-color: #0056b3; }
           }
         }
       }
