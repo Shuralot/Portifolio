@@ -1,54 +1,60 @@
-<div class="projects-page-container flex flex-col gap-10 p-5 max-w-[100vh] mx-auto">
+<div class="projects-page-container flex flex-col gap-10 p-5 max-w-6xl mx-auto">
 
-    <div id="projects-banner" class="w-full h-64 md:h-96 bg-transparent overflow-hidden justify-center">
- 
-        <img 
-            src="{{ project.img }}" 
-            alt="Projects Banner" 
-            class="w-full "
-            data-bs-toggle="modal" data-bs-target="#bannerImage" 
-        >
- 
+  <!-- Banner do projeto -->
+  <div id="projects-banner" class="w-full h-64 md:h-96 overflow-hidden flex justify-center items-center rounded-lg shadow-lg">
+    <img 
+      src="{{ project.img }}" 
+      alt="Projects Banner" 
+      class="w-full h-full object-cover cursor-pointer"
+      data-bs-toggle="modal" data-bs-target="#bannerImage"
+    >
+  </div>
 
+  <!-- Conteúdo do projeto -->
+  <div id="projects-content" class="space-y-6">
+
+    <!-- Nome e descrição -->
+    <h1 class="text-4xl md:text-5xl font-bold">{{ project.name }}</h1>
+    <p class="text-gray-700 text-lg md:text-xl">{{ project.desc }}</p>
+
+    <!-- Tecnologias -->
+    <h2 class="text-3xl font-semibold mt-6">Tecnologias</h2>
+    <ul id="technologies-list" class="flex flex-wrap gap-2">
+      <li *ngFor="let tech of project.tags" class="rounded-md bg-slate-800 px-4 py-2 flex items-center justify-center text-white shadow-md text-sm md:text-base">
+        {{ tech }}
+      </li>
+    </ul>
+
+    <!-- Aprendizados -->
+    <h2 class="text-3xl font-semibold mt-6">O que aprendi</h2>
+    <p class="text-gray-700 text-lg md:text-xl">{{ project.learned }}</p>
+
+    <!-- Links -->
+    <h2 class="text-3xl font-semibold mt-6">Links</h2>
+    <div id="projects-links" class="flex gap-4 text-4xl">
+      <a href="{{ project.linkgit }}" target="_blank" class="hover:text-gray-400 transition-colors duration-200">
+        <i class="fa-brands fa-square-github"></i>
+      </a>
     </div>
 
-    <div id="projects-content" class="space-y-6">
-        <h1 class="text-3xl font-bold">{{ project.name }}</h1>
-        <p class="text-gray-600">{{ project.desc }}</p>
-
-        <h2 class="text-2xl font-semibold">Tecnologias</h2>
-        <ul id="technologies-list" class="flex gap-1 list-none justify-start">
-            <li *ngFor="let tech of project.tags" class="rounded-md bg-slate-800 w-28 h-10 flex items-center justify-center text-white shadow-md">
-                {{ tech }}
-            </li>
-            
-        </ul>
-
-
-        <h2 class="text-2xl font-semibold">O que aprendi</h2>
-        <p class="text-gray-600">{{ project.learned }}</p>
-
-        <h2 class="text-2xl font-semibold">Links</h2>
-        <div id="projects-links" class="flex gap-4">
-            <a href="{{ project.linkgit }}" target="_blank" class="text-4xl hover:text-gray-400">
-                <i class="fa-brands fa-square-github"></i>
-            </a>
-        </div>
-    </div>
+  </div>
 
 </div>
 
+<!-- Modal do Banner -->
+<div class="modal fade" id="bannerImage" tabindex="-1" aria-labelledby="projectBannerImage" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content bg-transparent border-0 p-0">
 
-<!-- Modal -->
-<div class='modal fade' id="bannerImage"  tabindex="-1" aria-labelledby="projectBannerImage" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content w-auto h-auto object-cover">    
-            <img 
-                    src="{{ project.img }}" 
-                    alt="Projects Banner" 
-                    class="object-fill"
-            >
-            </div>
+      <!-- Botão de fechar -->
+      <button type="button" class="btn-close absolute top-2 right-2 z-50 text-white bg-gray-800 rounded-full p-2 opacity-90 hover:opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
+
+      <img 
+        src="{{ project.img }}" 
+        alt="Project Banner" 
+        class="w-full h-auto max-h-[90vh] object-contain rounded-lg shadow-lg"
+      >
+
     </div>
-
+  </div>
 </div>
