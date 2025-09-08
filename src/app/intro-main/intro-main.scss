@@ -7,103 +7,109 @@
   margin: 0 auto;
 
   .intro-introduction {
-    padding-top: 2dvh;
     display: flex;
-    gap: 30px;
+    flex-direction: row;
     align-items: center;
+    gap: 30px;
+    padding-top: 2vh;
 
     #img-perfil {
       flex-shrink: 0;
-
       img {
-        width: 150px;
-        height: 150px;
-        object-fit: fill;
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
         border-radius: 50%;
-        border: 3px solid #007bff;
+        border: 4px solid #007bff;
       }
     }
 
     #intro-nome-texto {
       h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
         margin-bottom: 5px;
       }
-
       h2 {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         color: #555;
         margin-bottom: 15px;
       }
-
       p {
         text-align: justify;
-        font-size: 1rem;
+        font-size: 1.1rem;
         color: #333;
         line-height: 1.6;
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      #intro-nome-texto {
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.2rem; }
+        p { font-size: 1rem; }
       }
     }
   }
 
   .intro-projects {
-    padding-top: 4dvh;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding-top: 4vh;
 
-    #my-projects{
-      padding-top: 5dvh;
-      padding-bottom: 5dvh;
+    #my-projects {
+      text-align: center;
+      font-size: 2rem;
+      padding: 5vh 0;
     }
-    
+
     #intro-banner {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: flex-start;
-
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-
       min-height: 250px;
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       overflow: hidden;
-      color: white; // deixa o texto branco por padrão
+      color: white;
 
       .overlay {
         position: absolute;
-        inset: 0; // cobre toda a área
-        background-color: rgba(0, 0, 0, 0.45); // escurece a imagem
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.45);
         z-index: 1;
       }
 
       .banner-content {
         position: relative;
-        z-index: 2; // fica acima da overlay
+        z-index: 2;
         max-width: 600px;
 
         h1 {
-          font-size: 1.5rem;
+          font-size: 2rem;
           margin-bottom: 10px;
         }
-
         p {
           margin-bottom: 15px;
-          font-size: 1rem;
-          line-height: 1.5;
+          font-size: 1.1rem;
         }
-
         button {
           background-color: rgba(0, 123, 255, 0.9);
           color: white;
           border: none;
-          padding: 10px 20px;
+          padding: 12px 25px;
           border-radius: 5px;
           cursor: pointer;
           font-weight: bold;
+          font-size: 1rem;
 
           &:hover {
             background-color: rgba(0, 86, 179, 0.9);
@@ -111,14 +117,14 @@
         }
       }
     }
-    
+
     #intro-projects-list-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      margin: 0;
-      padding-left: 0;
       list-style: none;
+      margin: 0;
+      padding: 0;
 
       li {
         display: flex;
@@ -126,47 +132,45 @@
         background: #fff;
         border: 1px solid #e0e0e0;
         border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 
         img {
           width: 100%;
           height: 200px;
-          object-fit: fill;
+          object-fit: cover;
         }
 
         .p-4 {
           display: flex;
           flex-direction: column;
-          height: 100%; // garante altura cheia do card
-          padding: 10px;
-        }
+          padding: 15px;
+          flex: 1;
 
-        h6 {
-          margin-bottom: 5px;
-          font-size: 1.1rem;
-          font-weight: 600;
-        }
+          h6 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+          }
+          p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.5;
+          }
+          button {
+            margin-top: auto;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
 
-        p {
-          font-size: 0.95rem;
-          color: #555;
-          line-height: 1.4;
-        }
-
-        button {
-          margin: 10px;
-          background-color: #007bff;
-          color: white;
-          border: none;
-          padding: 8px 15px;
-          border-radius: 5px;
-          cursor: pointer;
-          font-size: 0.9rem;
-          margin-top: auto; // 👈 empurra pro fim do card
-
-          &:hover {
-            background-color: #0056b3;
+            &:hover {
+              background-color: #0056b3;
+            }
           }
         }
       }

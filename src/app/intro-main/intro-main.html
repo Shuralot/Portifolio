@@ -1,4 +1,6 @@
 <div class="intro-main-container">
+
+  <!-- Introdução -->
   <div class="intro-introduction">
     <div id="img-perfil">
       <img src="https://pqtntsrfcboqeumitpoe.supabase.co/storage/v1/object/public/portimg/perfimg.png" alt="Eu">
@@ -6,19 +8,18 @@
     <div id="intro-nome-texto">
       <h1>Júlio Santos</h1>
       <h2>Desenvolvedor Fullstack Python e JS</h2>
-      <p> Bem-vindo ao meu portifólio! Sou desenvolvedor e psicólogo com amor pela Psicanálise e habilidades em Python, JavaScript e qualquer linguaguem que eu possa aprender para continuar evoluindo. Aqui você vai encontrar um pouco do que criei e aprendi!
-        
+      <p>
+        Bem-vindo ao meu portifólio! Sou desenvolvedor e psicólogo com amor pela Psicanálise e habilidades em Python, JavaScript e qualquer linguagem que eu possa aprender para continuar evoluindo. Aqui você vai encontrar um pouco do que criei e aprendi!
       </p>
     </div>
   </div>
 
+  <!-- Projetos -->
   <div class="intro-projects">
-    <div *ngIf="featuredProject as banner"
-        id="intro-banner"
-        [ngStyle]="{'background-image': 'url(' + banner.img + ')'}">
 
-      <div class="overlay"></div> <!-- camada escura por cima da imagem -->
-
+    <!-- Banner do projeto em destaque -->
+    <div *ngIf="featuredProject as banner" id="intro-banner" [ngStyle]="{'background-image': 'url(' + banner.img + ')'}">
+      <div class="overlay"></div>
       <div class="banner-content">
         <h1>Projeto em destaque</h1>
         <p>{{ banner.name }}</p>
@@ -28,8 +29,8 @@
     </div>
 
     <h1 id="my-projects">Meus Projetos</h1>
-    
 
+    <!-- Lista de projetos -->
     <ng-container *ngIf="shares$ | async as shares; else loading">
       <ul id="intro-projects-list-grid">
         <li *ngFor="let share of shares">
@@ -48,6 +49,3 @@
     </ng-template>
   </div>
 </div>
-
-
-
