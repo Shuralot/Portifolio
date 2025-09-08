@@ -48,3 +48,13 @@
     </div>
   </div>
 </header>
+
+<header *ngIf="isMobile !== null">
+  <div class="header-container" *ngIf="!isMobile">
+    <!-- desktop -->
+  </div>
+
+  <div class="header-container" *ngIf="isMobile">
+    <!-- mobile -->
+  </div>
+</header>
