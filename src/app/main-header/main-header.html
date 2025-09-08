@@ -1,60 +1,37 @@
-<header>
-  <!-- Desktop -->
-  <div class="header-container" *ngIf="!isMobile">
-    <div id="logo">
-      <div>
-        <a href="#">
-          <img src="https://pqtntsrfcboqeumitpoe.supabase.co/storage/v1/object/public/portimg/logo.png" alt="Santos App Logo" />
-        </a>
-      </div>
-      <div>
-        <a href="#" class="text-gray-800 font-bold text-lg hover:text-blue-500">Júlio Santos</a>
-      </div>
-    </div>
+<header class="w-full bg-blue-700 shadow-md relative py-2 px-2 flex items-center">
 
-    <div id="menu">
-      <div><a routerLink="/" class="text-gray-600 font-semibold text-lg hover:text-blue-500">Home</a></div>
-      <div><a routerLink="/aboutme" class="text-gray-600 font-semibold text-lg hover:text-blue-500">Sobre</a></div>
-      <div><a routerLink="/contact" class="text-gray-600 font-semibold text-lg hover:text-blue-500">Contato</a></div>
-    </div>
+  <!-- Logo e Nome -->
+  <div class="flex items-center gap-2">
+    <a routerLink="/" class="flex items-center no-underline hover:no-underline">
+    <img src="https://pqtntsrfcboqeumitpoe.supabase.co/storage/v1/object/public/portimg/logo.png" 
+        alt="Santos App Logo" 
+        class="h-12 cursor-pointer" />
+    <span class="text-white font-bold text-2xl">Júlio Santos</span>
+    </a>
+
   </div>
 
-  <!-- Mobile -->
-  <div class="header-container flex justify-between items-center px-8 py-2.5 bg-blue-700 shadow-md" *ngIf="isMobile">
-    <!-- Logo -->
-    <div id="logo" class="flex items-center gap-2.5">
-      <a href="#" class="flex items-center">
-        <img src="https://pqtntsrfcboqeumitpoe.supabase.co/storage/v1/object/public/portimg/logo.png" 
-             alt="Santos App Logo" 
-             class="max-h-10 mr-2 cursor-pointer" />
-      </a>
-    </div>
+  <!-- Menu Desktop -->
+    <nav class="hidden md:flex gap-6 absolute left-1/2 transform -translate-x-1/2 text-lg">
+        <a routerLink="/" class="text-white font-semibold hover:text-yellow-300 no-underline hover:no-underline">Home</a>
+        <a routerLink="/aboutme" class="text-white font-semibold hover:text-yellow-300 no-underline hover:no-underline">Sobre</a>
+        <a routerLink="/contact" class="text-white font-semibold hover:text-yellow-300 no-underline hover:no-underline">Contato</a>
+    </nav>
 
-    <!-- Botão Hamburger à direita -->
-    <div class="flex-none relative">
-      <button id="menu-button"
-              type="button"
-              class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none"
-              data-bs-toggle="dropdown"
-              aria-expanded="false">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-
-      <ul class="dropdown-menu dropdown-menu-end bg-blue-600 text-white mt-1 rounded shadow-lg">
-        <li><a class="dropdown-item text-black hover:bg-blue-700" href="#">Home</a></li>
-        <li><a class="dropdown-item text-black hover:bg-blue-700" routerLink="/aboutme">Sobre</a></li>
-        <li><a class="dropdown-item text-black hover:bg-blue-700" routerLink="/contact">Contato</a></li>
-      </ul>
-    </div>
-  </div>
-</header>
-
-<header *ngIf="isMobile !== null">
-  <div class="header-container" *ngIf="!isMobile">
-    <!-- desktop -->
+  <!-- Menu Mobile -->
+  <div class="md:hidden relative ml-auto">
+    <button id="menu-button"
+            type="button"
+            class="bg-white text-blue-600 px-3 py-2 rounded-md hover:bg-blue-500 focus:outline-none"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end bg-blue-600 text-white mt-1 rounded shadow-lg">
+      <li><a routerLink="/" class="dropdown-item text-black hover:bg-blue-700 no-underline">Home</a></li>
+      <li><a routerLink="/aboutme" class="dropdown-item text-black hover:bg-blue-700 no-underline">Sobre</a></li>
+      <li><a routerLink="/contact" class="dropdown-item text-black hover:bg-blue-700 no-underline">Contato</a></li>
+    </ul>
   </div>
 
-  <div class="header-container" *ngIf="isMobile">
-    <!-- mobile -->
-  </div>
 </header>

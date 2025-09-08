@@ -12,14 +12,4 @@ import { CommonModule } from '@angular/common';
 })
 export class MainHeader {
 
-  isMobile:boolean | null = null;
-  
-   constructor(private breakpointObserver: BreakpointObserver) {
-    this.breakpointObserver
-      .observe([Breakpoints.Handset, Breakpoints.Tablet])
-      .subscribe((result: BreakpointState) => {
-        // Essa é a forma mais confiável
-        this.isMobile = result.matches;
-      });
-  }
 }
